@@ -24,4 +24,3 @@ if ($page == 'home') {
 }
 
 include('footer.php'); // Kreirajte footer.php koji sadrži HTML za podnožje stranice
-

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('db.php');
 
 if (!isset($_SESSION['admin_logged_in'])) {
@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     if ($_POST['action'] == "add") {
-        // Dodavanje proizvoda
+  
         $name = $_POST['name'];
         $code = $_POST['code'];
         $price = $_POST['price'];
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $stmt->bind_param("ssds", $name, $code, $price, $image);
         $stmt->execute();
     } elseif ($_POST['action'] == "delete" && isset($_POST['id'])) {
-        // Brisanje proizvoda
+
         $id = $_POST['id'];
         $stmt = $con->prepare("DELETE FROM products WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     }
 }
 
-$products = getProducts();
+$products = getProducts($con);
 ?>
 
 <h1>Administratorska ploča</h1>

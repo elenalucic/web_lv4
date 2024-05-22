@@ -1,12 +1,16 @@
 <?php
 
-include 'functions.php';
+include_once 'db.php'; // Uključivanje baze podataka
+include_once 'functions.php'; // Uključivanje datoteke s funkcijama
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     $product = getProductById($con, $_POST['code']);
-    addProductToCart($product);
+    if ($product) {
+        addProductToCart($product);
+    } else {
+        echo "Proizvod nije pronađen.";
+    }
 }
-
 ?>
 
 <h1>Košarica</h1>
@@ -39,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
             <?php endforeach; ?>
         </tbody>
     </table>
-    <p>Ukupno: <?php echo array_sum(array_column($_SESSION["shopping_cart"], 'price')); ?> HRK</p>
+    <p>Ukupno: <?php echo array_sum(array_map(function($product) { return $product['price'] * $product['quantity']; }, $_SESSION["shopping_cart"])); ?> HRK</p>
     <a href="index.php?page=placeorder">Naruči</a>
 <?php else: ?>
     <p>Vaša košarica je prazna!</p>

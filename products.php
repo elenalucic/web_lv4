@@ -1,8 +1,8 @@
 <?php
-include 'functions.php'; // Uključivanje datoteke s funkcijama
+
 echo '<link rel="stylesheet" type="text/css" href="style.css">';
 
-$products = getProducts();
+$products = getProducts($con);
 ?>
 
 <h1>Proizvodi</h1>

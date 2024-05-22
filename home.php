@@ -1,6 +1,5 @@
 <?php
-
-$products = getProducts();
+$products = getProducts($con);
 ?>
 
 <h1>Dobrodošli u našu trgovinu!</h1>

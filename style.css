@@ -1,75 +1,153 @@
-.text-align-center{ text-align:center; }
-.f-w-b{ font-weight:bold; }
-.display-none{ display:none; }
-.w-5-pct{ width:5%; }
-.w-10-pct{ width:10%; }
-.w-15-pct{ width:15%; }
-.w-20-pct{ width:20%; }
-.w-25-pct{ width:25%; }
-.w-30-pct{ width:30%; }
-.w-35-pct{ width:35%; }
-.w-40-pct{ width:40%; }
-.w-45-pct{ width:45%; }
-.w-50-pct{ width:50%; }
-.w-55-pct{ width:55%; }
-.w-60-pct{ width:60%; }
-.w-65-pct{ width:65%; }
-.w-70-pct{ width:70%; }
-.w-75-pct{ width:75%; }
-.w-80-pct{ width:80%; }
-.w-85-pct{ width:85%; }
-.w-90-pct{ width:90%; }
-.w-95-pct{ width:95%; }
-.w-100-pct{ width:100%; }
-.m-t-0px{ margin-top:0px; }
-.m-b-10px{ margin-bottom:10px; }
-.m-b-20px{ margin-bottom:20px; }
-.m-b-30px{ margin-bottom:30px; }
-.m-b-40px{ margin-bottom:40px; }
-.stock-text {
-    font-weight: bold;
-    color: #008a00;
+/* CSS variables */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --font-size-base: 16px;
+    --font-family-base: Arial, sans-serif;
 }
-.stock-text-red{
-    font-weight:bold;
-    color:#b12704;
+
+/* Global styles */
+body {
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-base);
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
-.product-detail {
-    font-weight: bold;
-    margin: 0 0 5px 0;
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 0;
 }
-.blueimp-gallery>.prev, .blueimp-gallery>.next{ border:none; }
-.update-quantity-form {
-    width: 150px;
-    float: left;
-    margin: 0 10px 0 0;
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 0;
 }
-.cart-row {
-    border-bottom: thin solid #f1f1f1;
-    overflow: hidden;
-    width: 100%;
-    padding: 20px 0 20px 0;
+
+img {
+    max-width: 100%;
+    height: auto;
 }
-.product-link{
-    color:#000000;
-}
-.product-link:hover{
-    color:#000000;
-    text-decoration:none;
-}
-.product-img-thumb {
-    margin: 0 0 10px 0;
-    width: 50%;
-    height: 50%;
+
+/* Header styles */
+.cart-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
     cursor: pointer;
 }
 
-.products{
-    display: flex;
-    flex-direction: row;
+.cart-badge {
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+    margin-left: 0.5em;
+    font-size: 0.8em;
 }
 
-.product img{
-    width: 30%;
-    height: 50%;
+/* Items grid styles */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1em;
+    margin-top: 1em;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1em;
+}
+
+.item h2 {
+    margin-top: 0.5em;
+}
+
+.item p {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show-modal {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 1em;
+    border: 1px solid #ccc;
+    max-width: 600px;
+}
+
+.close {
+    float: right;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+
+.cart-items li span {
+    margin-left: 0.5em;
+}
+
+.cart-total {
+    font-weight: bold;
+}
+
+.buy-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 1em;
 }
